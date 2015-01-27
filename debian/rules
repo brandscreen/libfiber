@@ -6,11 +6,12 @@
 
 override_dh_auto_install:
 	mkdir -p debian/tmp/usr/lib
+	mkdir -p debian/tmp/usr/include/fiber
 	mv libfiber.so libfiber.so.0.1.0
 	ln -fs libfiber.so.0.1.0 libfiber.so
 	ln -fs libfiber.so.0.1.0 libfiber.so.0
 	cp -d libfiber.so* debian/tmp/usr/lib/
-	cp -r include debian/tmp/usr/
+	find include -name '*.h' -exec cp {} debian/tmp/usr/include/fiber/ \;
 
 override_dh_auto_build:
 	LINKER_SHARED_FLAG="-shared -Wl,-soname,libfiber.so.0" make
