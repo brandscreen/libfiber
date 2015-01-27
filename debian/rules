@@ -1,0 +1,19 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+override_dh_auto_install:
+	mkdir -p debian/tmp/usr/lib
+	mv libfiber.so libfiber.so.0.1.0
+	ln -fs libfiber.so.0.1.0 libfiber.so
+	ln -fs libfiber.so.0.1.0 libfiber.so.0
+	cp -d libfiber.so* debian/tmp/usr/lib/
+	cp -r include debian/tmp/usr/
+
+override_dh_auto_build:
+	LINKER_SHARED_FLAG="-shared -Wl,-soname,libfiber.so.0" make
+
+%:
+	dh $@ 

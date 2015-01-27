@@ -1,0 +1,19 @@
+Source: libfiber
+Priority: optional
+Maintainer: Miles Delahunty <mdelahunty@brandscreen.com>
+Build-Depends: debhelper (>= 8.0.0)
+Standards-Version: 3.9.4
+Section: libs
+Homepage: https://github.com/brianwatling/libfiber.git
+
+Package: libfiber-dev
+Section: libdevel
+Architecture: any
+Depends: libfiber0 (= ${binary:Version})
+Description: User space threading library (development files)
+
+Package: libfiber0
+Section: libs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: User space threading library (runtime version)
