@@ -1,7 +1,7 @@
 Source: libfiber
 Priority: optional
 Maintainer: Miles Delahunty <mdelahunty@brandscreen.com>
-Build-Depends: debhelper (>= 8.0.0)
+Build-Depends: debhelper (>= 8.0.0), time
 Standards-Version: 3.9.4
 Section: libs
 Homepage: https://github.com/brianwatling/libfiber.git
